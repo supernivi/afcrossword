@@ -68,7 +68,7 @@ function App() {
         <b>AF</b> Crossword
       </h1>
 
-      <CrosswordWrapper className="CrosswordWrapper mt-3">
+      <CrosswordWrapper className="CrosswordWrapper mt-2">
         <Crossword
           data={data}
           ref={crossword}
