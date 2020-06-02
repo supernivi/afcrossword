@@ -63,14 +63,12 @@ function App() {
   );
 
   return (
-    <Page>
-      <Commands>
-        <Command onClick={focus}>Focus</Command>
-        <Command onClick={fillAllAnswers}>Fill all answers</Command>
-        <Command onClick={reset}>Reset</Command>
-      </Commands>
+    <Page className="page mt-1">
+      <h1 className="af-header-title">
+        <b>AF</b> Crossword
+      </h1>
 
-      <CrosswordWrapper>
+      <CrosswordWrapper className="CrosswordWrapper mt-3">
         <Crossword
           data={data}
           ref={crossword}
@@ -80,6 +78,19 @@ function App() {
           columnBreakpoint={"1920px"}
         />
       </CrosswordWrapper>
+      <Commands className="buttonList mt-2">
+        <Command onClick={focus} className="button -black">
+          Focus
+        </Command>
+        <Command onClick={reset} className="button -black">
+          Reset
+        </Command>
+      </Commands>
+      <Commands className="buttonList">
+        <Command onClick={fillAllAnswers} className="button -green">
+          Fill all answers
+        </Command>
+      </Commands>
       {console.log(messages.toString())}
     </Page>
   );
@@ -89,14 +100,7 @@ export default App;
 
 // Styled-components
 
-const Page = styled.div`
-  padding: 2em;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-items: center;
-  flex-direction: column;
-`;
+const Page = styled.div``;
 
 const Commands = styled.div``;
 
