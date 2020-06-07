@@ -143,7 +143,9 @@ Crossword.defaultProps = {
     gridBackground: "transparent",
     cellBackground: "#dfdfdf",
     focusBackground: "#416eea69",
-    highlightBackground: "#7999a9bd",
+    highlightBackground: "#ccd2debd",
     cellBorder: "transparent",
+    numberColor: "#333",
+    textColor: "#555",
   },
 };

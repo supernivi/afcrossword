@@ -63,6 +63,8 @@
 
 .clue {
   padding-left: 1rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
   border-radius: 3px;
 }
 
@@ -152,4 +154,18 @@
     font-weight: 500;
     background: var(--color-grass);
   }
+}
+
+// Custom Crossword styles
+.crossword {
+}
+
+.grid .clue {
+  background: #000 !important;
+}
+
+.correct {
+  color: #555 !important;
+  text-decoration: none !important;
+  background: #47d8923f !important;
 }
