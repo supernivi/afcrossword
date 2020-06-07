@@ -1,28 +1,25 @@
 const data = {
   across: {
     1: {
-      clue: "One plus one",
-      answer: "TWO",
-      row: 0,
-      col: 0,
-    },
-    3: {
-      clue: "Naman",
-      answer: "NAMAN",
+      clue:
+        " This artist known for his master of color was the son of a farm ranger, who spent most of his career in France. ",
+      answer: "SHRAZA",
       row: 1,
       col: 2,
     },
-    4: {
-      clue: "Anna",
-      answer: "ANNA",
+    3: {
+      clue:
+        'Known for his controversial painting titled "Bharat Mata", this artist is known as the Picasso of India.',
+      answer: "MFHUSAIN",
       row: 4,
       col: 0,
     },
   },
   down: {
     2: {
-      clue: "Brings tears into your eyes",
-      answer: "ONION",
+      clue:
+        "This Goan artist was one of the founding members of the Bombay Progressive Artists' Group.",
+      answer: "FNSOUZA",
       row: 0,
       col: 2,
     },

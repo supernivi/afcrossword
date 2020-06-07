@@ -12,21 +12,25 @@
   background: #f2f2f2;
 }
 
+* {
+  transition: all 0.2s ease-in-out;
+}
+
 .page {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   overflow: hidden;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   justify-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .mt-1 {
@@ -49,6 +53,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+.af-fullLogo {
+  width: 16rem;
+}
+
 .CrosswordWrapper {
   -webkit-transition: -webkit-filter 0.2s ease-in-out;
   transition: -webkit-filter 0.2s ease-in-out;
@@ -56,10 +64,10 @@
   transition: filter 0.2s ease-in-out, -webkit-filter 0.2s ease-in-out;
 }
 
-.CrosswordWrapper:hover {
+/* .CrosswordWrapper:hover {
   -webkit-filter: drop-shadow(2px 6px 10px rgba(226, 228, 129, 0.479)) invert(10%);
-          filter: drop-shadow(2px 6px 10px rgba(226, 228, 129, 0.479)) invert(10%);
-}
+  filter: drop-shadow(2px 6px 10px rgba(240, 240, 240, 0.479));
+} */
 
 .buttonList {
   width: 100%;
@@ -68,14 +76,14 @@
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-wrap: nowrap;
   overflow: visible;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .buttonList button {
@@ -87,9 +95,9 @@
   padding: 12px 12px;
   cursor: pointer;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   -webkit-transition: all 150ms linear;
   transition: all 150ms linear;
   text-align: center;
@@ -107,16 +115,16 @@
   -moz-appearance: none;
   appearance: none;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 8rem;
-          flex: 0 0 8rem;
+  -ms-flex: 0 0 8rem;
+  flex: 0 0 8rem;
   -webkit-box-shadow: 2px 5px 10px var(--color-smoke);
-          box-shadow: 2px 5px 10px var(--color-smoke);
+  box-shadow: 2px 5px 10px var(--color-smoke);
 }
 
 .buttonList button:hover {

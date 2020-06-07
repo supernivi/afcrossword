@@ -1,7 +1,10 @@
-import React, { useCallback, useRef, useState } from "react";
-import Crossword from "@jaredreisinger/react-crossword";
-import styled from "styled-components";
 import "./App.css";
+
+import Crossword from "@jaredreisinger/react-crossword";
+import React, { useCallback, useRef, useState } from "react";
+import styled from "styled-components";
+
+import Logo from "../assets/img/logo.png";
 import data from "./../const/data_1";
 
 // in order to make this a more-comprehensive example, and to vet Crossword's
@@ -65,7 +68,8 @@ function App() {
   return (
     <Page className="page mt-1">
       <h1 className="af-header-title">
-        <b>AF</b> Crossword
+        {/* <b>AF</b> Crossword */}
+        <img className="af-fullLogo" src={Logo} alt="Artfervour Logo" />
       </h1>
 
       <CrosswordWrapper className="CrosswordWrapper mt-2">
@@ -100,7 +104,10 @@ export default App;
 
 // Styled-components
 
-const Page = styled.div``;
+const Page = styled.div`
+  padding-left: 20px;
+  padding-right: 20px;
+`;
 
 const Commands = styled.div``;
 
@@ -131,5 +138,10 @@ const CrosswordWrapper = styled.div`
 Crossword.defaultProps = {
   theme: {
     columnBreakpoint: "1920px",
+    gridBackground: "transparent",
+    cellBackground: "#dfdfdf",
+    focusBackground: "#416eea69",
+    highlightBackground: "#7999a9bd",
+    cellBorder: "transparent",
   },
 };
