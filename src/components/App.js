@@ -1,7 +1,7 @@
-import "./App.css";
+import "./App.scss";
 
 import Crossword from "@jaredreisinger/react-crossword";
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
 import Logo from "../assets/img/logo.png";
@@ -13,9 +13,9 @@ import data from "./../const/data_1";
 function App() {
   const crossword = useRef();
 
-  const focus = useCallback((_event) => {
-    crossword.current.focus();
-  }, []);
+  // const focus = useCallback((_event) => {
+  //   crossword.current.focus();
+  // }, []);
 
   const fillAllAnswers = useCallback((_event) => {
     crossword.current.fillAllAnswers();
@@ -27,6 +27,10 @@ function App() {
 
   // We don't really *do* anything with callbacks from the Crossword component,
   const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    console.log(messages);
+  }, [messages]);
 
   const addMessage = useCallback((message) => {
     setMessages((m) => m.concat(`${message}\n`));
@@ -72,7 +76,7 @@ function App() {
         <img className="af-fullLogo" src={Logo} alt="Artfervour Logo" />
       </h1>
 
-      <CrosswordWrapper className="CrosswordWrapper mt-2">
+      <CrosswordWrapper className="CrosswordWrapper mt-0">
         <Crossword
           data={data}
           ref={crossword}
@@ -83,14 +87,12 @@ function App() {
         />
       </CrosswordWrapper>
       <Commands className="buttonList mt-2">
-        <Command onClick={focus} className="button -black">
+        {/* <Command onClick={focus} className="button -black">
           Focus
-        </Command>
+        </Command> */}
         <Command onClick={reset} className="button -black">
           Reset
         </Command>
-      </Commands>
-      <Commands className="buttonList">
         <Command onClick={fillAllAnswers} className="button -green">
           Fill all answers
         </Command>

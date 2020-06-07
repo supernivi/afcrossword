@@ -1,7 +1,7 @@
 :root {
   --color-dark: #161616;
   --color-ocean: #416dea;
-  --color-grass: #3dd28d;
+  --color-grass: #40d690;
   --color-snow: #ffffff;
   --color-salmon: #f32c52;
   --color-sun: #feee7d;
@@ -9,8 +9,12 @@
   --color-flower: #353866;
   --color-smoke: #e4e4e4;
 
-  --borderRadius: 4px;
+  --borderRadius: 2px;
   background: #f2f2f2;
+}
+
+* {
+  transition: all 0.2s ease-in-out;
 }
 
 .page {
@@ -20,6 +24,10 @@
   align-items: center;
   justify-items: center;
   flex-direction: column;
+}
+
+.mt-0 {
+  margin-top: 0rem !important;
 }
 
 .mt-1 {
@@ -42,12 +50,23 @@
   font-family: "Poppins", sans-serif;
 }
 
+.af-fullLogo {
+  width: 18rem;
+}
+
 .CrosswordWrapper {
   transition: filter 0.2s ease-in-out;
   &:hover {
-    filter: drop-shadow(2px 6px 10px rgba(226, 228, 129, 0.479)) invert(10%);
+    filter: drop-shadow(2px 6px 10px rgb(248, 248, 248));
   }
 }
+
+.clue {
+  padding-left: 1rem;
+  border-radius: 3px;
+}
+
+// Buttons
 
 .buttonList {
   width: 100%;
@@ -128,7 +147,9 @@
     }
   }
   .button.-green {
-    color: var(--color-snow);
+    // color: var(--color-snow);
+    color: #202129;
+    font-weight: 500;
     background: var(--color-grass);
   }
 }
