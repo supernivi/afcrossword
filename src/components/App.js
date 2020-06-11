@@ -109,15 +109,14 @@ function App() {
           columnBreakpoint={"1920px"}
         />
       </CrosswordWrapper>
-      <Grid.Container gap={1} className="actualGrid" justify="center">
+      <Grid.Container gap={1} className="actualGrid" justify="space-around">
         <Grid>
-          <Button size="large" type="secondary" onClick={reset}>
+          <Button type="secondary" onClick={reset}>
             Reset
           </Button>
         </Grid>
         <Grid>
           <Button
-            size="large"
             type="success"
             onClick={() => {
               checkCrossword();

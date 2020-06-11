@@ -133,7 +133,21 @@
 }
 
 .actualGrid {
+  opacity: 0.8;
   padding: 1rem 0;
+  padding-top: 0;
+  max-width: 30em;
+}
+
+@media screen and (max-width: 450px) {
+  .btn {
+    min-width: 10rem !important;
+  }
+}
+@media screen and (max-width: 380px) {
+  .btn {
+    min-width: 9rem !important;
+  }
 }
 
 // temp
