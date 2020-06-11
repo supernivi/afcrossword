@@ -96,7 +96,6 @@ function App() {
   return (
     <Page className="page">
       <h1 className="af-header-title">
-        {/* <b>AF</b> Crossword */}
         <img
           className="af-fullLogo"
           src={Logo}

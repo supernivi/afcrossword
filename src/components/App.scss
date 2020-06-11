@@ -108,6 +108,7 @@ body {
 
 .crossword {
   .clues {
+    margin-top: 0;
     padding: 0;
   }
 }
@@ -152,5 +153,27 @@ body {
     min-width: 9.4rem !important;
   }
 }
+
+// Final Page Specific
+.finalButton {
+  opacity: 0.72;
+  min-width: 16rem !important;
+}
+
+// .af-game-bold-title {
+//   font-weight: 700;
+//   font-size: 3rem;
+//   margin-top: 40%;
+//   text-align: center;
+//   letter-spacing: -1px;
+//   transform: rotate(45deg);
+//   position: absolute;
+//   color: #44484925 !important;
+//   font-family: "Montserrat", sans-serif;
+//   &::before {
+//     content: "GASD";
+//     transform: rotate(90deg), translate(1rem) !important;
+//   }
+// }
 
 // temp

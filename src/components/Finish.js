@@ -1,133 +1,54 @@
 import "./App.scss";
 
-import Crossword from "@jaredreisinger/react-crossword";
-import React, { useCallback, useRef, useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import Logo from "../assets/img/logo.png";
-import data from "./../const/data_1";
 
-import { useHistory } from "react-router-dom";
+import { Button, Grid, Text, Spacer } from "@zeit-ui/react";
 
-import { useToasts, Button, Grid } from "@zeit-ui/react";
+import { Facebook, Instagram } from "@zeit-ui/react-icons";
 
 // in order to make this a more-comprehensive example, and to vet Crossword's
 // features, we actually implement a fair amount...
 
 function App() {
-  const crossword = useRef();
-  let history = useHistory();
-  const [, setToast] = useToasts();
-
-  // const focus = useCallback((_event) => {
-  //   crossword.current.focus();
-  // }, []);
-
-  // eslint-disable-next-line
-  const fillAllAnswers = useCallback((_event) => {
-    crossword.current.fillAllAnswers();
-  }, []);
-
-  const reset = useCallback((_event) => {
-    crossword.current.reset();
-  }, []);
-
-  // We don't really *do* anything with callbacks from the Crossword component,
-  const [messages, setMessages] = useState([]);
-
-  useEffect(() => {
-    console.log(messages);
-  }, [messages]);
-
-  const addMessage = useCallback((message) => {
-    setMessages((m) => m.concat(`${message}\n`));
-  }, []);
-
-  // onCorrect is called with the direction, number, and the correct answer.
-  const onCorrect = useCallback(
-    (direction, number, answer) => {
-      addMessage(`onCorrect: "${direction}", "${number}", "${answer}"`);
-    },
-    [addMessage]
-  );
-
-  // onLoadedCorrect is called with an array of the already-correct answers,
-  // each element itself is an array with the same values as in onCorrect: the
-  // direction, number, and the correct answer.
-  const onLoadedCorrect = useCallback(
-    (answers) => {
-      addMessage(
-        `onLoadedCorrect:\n${answers
-          .map(
-            ([direction, number, answer]) =>
-              `    - "${direction}", "${number}", "${answer}"`
-          )
-          .join("\n")}`
-      );
-    },
-    [addMessage]
-  );
-
-  // onCellChange is called with the row, column, and character.
-  const onCellChange = useCallback(
-    (row, col, char) => {
-      addMessage(`onCellChange: "${row}", "${col}", "${char}"`);
-    },
-    [addMessage]
-  );
-
-  // Check if crossword correct
-  const checkCrossword = () => {
-    const check = crossword.current.isCrosswordCorrect();
-    if (check) {
-      history.push("/finish");
-    } else {
-      console.log(check);
-      click("warning");
-    }
-  };
-
-  const click = (type) =>
-    setToast({
-      text: "Some answers are wrong!",
-      type,
-    });
-
   return (
     <Page className="page">
-      <h1 className="af-header-title">
-        {/* <b>AF</b> Crossword */}
-        <img
-          className="af-fullLogo"
-          src={Logo}
-          alt="Artfervour Logo"
-          onDoubleClick={fillAllAnswers}
-        />
-      </h1>
-
-      <CrosswordWrapper className="CrosswordWrapper mt-0">
-        <Crossword
-          data={data}
-          ref={crossword}
-          onCorrect={onCorrect}
-          onLoadedCorrect={onLoadedCorrect}
-          onCellChange={onCellChange}
-          columnBreakpoint={"1920px"}
-        />
-      </CrosswordWrapper>
-      <Grid.Container gap={1} className="actualGrid" justify="space-around">
-        <Grid>
-          <Button type="secondary" onClick={reset}>
-            Reset
-          </Button>
-        </Grid>
-        <Grid>
-          <Button type="success" onClick={() => checkCrossword()}>
-            Submit
-          </Button>
-        </Grid>
+      <img className="af-fullLogo" src={Logo} alt="Artfervour Logo" />
+      <Spacer y={3} />
+      <Text h3>Congrats you are AWESOME!</Text>
+      <Spacer y={0.5} />
+      <Text p style={opacity(0.85)}>
+        Thank you for playing <b>AF CROSSWORD</b>
+      </Text>
+      <Spacer y={0.5} />
+      <Text p style={opacity(0.6)}>
+        Time Taken: 0
+      </Text>
+      <Spacer y={2} />
+      <Button size="large" type="secondary" className="finalButton">
+        Restart
+      </Button>
+      <Spacer y={0.5} />
+      <Button size="large" type="secondary" className="finalButton">
+        Play More Games
+      </Button>
+      <Spacer y={0.5} />
+      <Button size="large" type="secondary" className="finalButton">
+        Play Motion Brush
+      </Button>
+      <Spacer y={2} />
+      <Text p style={textCenter}>
+        Did you like the crossword? Share it with your friends, so they can give
+        it a shot!
+      </Text>
+      <Spacer y={2} />
+      <Grid.Container justify="center">
+        <Facebook />
+        <Spacer inline x={1.4} />
+        <Instagram />
       </Grid.Container>
-      {console.log(messages.toString())}
     </Page>
   );
 }
@@ -141,35 +62,10 @@ const Page = styled.div`
   padding-right: 20px;
 `;
 
-const CrosswordWrapper = styled.div`
-  margin-top: 2em;
-  max-width: 30em;
+const textCenter = {
+  textAlign: "center",
+};
 
-  /* and some fun making use of the defined class names */
-
-  .clue.correct {
-    ::before {
-      content: "\u2713"; /* a.k.a. checkmark: ✓ */
-      display: inline-block;
-      text-decoration: none;
-      color: rgb(100, 200, 100);
-      margin-right: 0.25em;
-    }
-
-    text-decoration: line-through;
-    color: rgb(130, 130, 130);
-  }
-`;
-
-Crossword.defaultProps = {
-  theme: {
-    columnBreakpoint: "1920px",
-    gridBackground: "transparent",
-    cellBackground: "#dfdfdf",
-    focusBackground: "#416eea69",
-    highlightBackground: "#ccd2debd",
-    cellBorder: "transparent",
-    numberColor: "#333",
-    textColor: "#555",
-  },
+const opacity = (val) => {
+  return { opacity: val };
 };
