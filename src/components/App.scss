@@ -9,7 +9,7 @@
   --color-flower: #353866;
   --color-smoke: #e4e4e4;
 
-  --borderRadius: 2px;
+  --borderRadius: 4px;
   background: #f2f2f2;
 }
 
@@ -52,20 +52,6 @@
 
 .af-fullLogo {
   width: 18rem;
-}
-
-.CrosswordWrapper {
-  transition: filter 0.2s ease-in-out;
-  &:hover {
-    filter: drop-shadow(2px 6px 10px rgb(248, 248, 248));
-  }
-}
-
-.clue {
-  padding-left: 1rem;
-  padding-top: 0.6rem;
-  padding-bottom: 0.6rem;
-  border-radius: 3px;
 }
 
 // Buttons
@@ -157,15 +143,49 @@
 }
 
 // Custom Crossword styles
-.crossword {
+
+.CrosswordWrapper {
+  transition: filter 0.2s ease-in-out;
+  &:hover {
+    filter: drop-shadow(2px 6px 10px rgb(248, 248, 248));
+  }
+}
+
+.clue {
+  color: #444;
+  padding-left: 1rem;
+  padding-top: 0.4rem;
+  border-radius: 3px;
+  padding-bottom: 0.6rem;
 }
 
 .grid .clue {
   background: #000 !important;
 }
 
-.correct {
+.correct.crossword {
   color: #555 !important;
   text-decoration: none !important;
-  background: #47d8923f !important;
+  background: #47d89227 !important;
+  border-radius: 12px !important;
+  padding-top: 20px !important;
+  .grid {
+    display: none;
+  }
+  .clues {
+    display: none;
+  }
+  &::before {
+    content: "All answers are Correct!";
+    font-size: 2rem;
+    text-align: center;
+    padding: 2rem;
+  }
+  &::after {
+    color: #888;
+    padding: 2rem;
+    font-size: 0.8rem;
+    text-align: center;
+    content: "Tap on submit to continue";
+  }
 }

@@ -94,7 +94,7 @@ function App() {
           Reset
         </Command>
         <Command onClick={fillAllAnswers} className="button -green">
-          Fill all answers
+          Submit
         </Command>
       </Commands>
       {console.log(messages.toString())}
