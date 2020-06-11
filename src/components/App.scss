@@ -17,6 +17,11 @@
   transition: all 0.2s ease-in-out;
 }
 
+html,
+body {
+  min-height: 100vh !important;
+}
+
 .page {
   display: flex;
   flex-wrap: wrap;
@@ -24,6 +29,7 @@
   align-items: center;
   justify-items: center;
   flex-direction: column;
+  padding-top: 1rem;
 }
 
 .mt-0 {
@@ -47,6 +53,7 @@
   font-weight: 300;
   font-size: 2.8rem;
   text-align: center;
+  padding: 1rem 0;
   font-family: "Poppins", sans-serif;
 }
 
@@ -111,6 +118,7 @@
   background: #47d89227 !important;
   border-radius: 12px !important;
   padding-top: 20px !important;
+  margin-bottom: 2rem;
   .grid {
     display: none;
   }
@@ -139,14 +147,9 @@
   max-width: 30em;
 }
 
-@media screen and (max-width: 450px) {
-  .btn {
-    min-width: 10rem !important;
-  }
-}
 @media screen and (max-width: 380px) {
   .btn {
-    min-width: 9rem !important;
+    min-width: 9.4rem !important;
   }
 }
 

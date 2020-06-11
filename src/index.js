@@ -7,16 +7,21 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import App from "./components/App";
 import Finish from "./components/Finish";
 import * as serviceWorker from "./serviceWorker";
+import { ZeitProvider, CssBaseline } from "@zeit-ui/react";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Switch className="container">
-        <Route exact path="/" component={App} />
-        <Route path="/finish" component={Finish} />
-        <Route component={() => <>Invalid path</>} />
-      </Switch>
-    </BrowserRouter>
+    <ZeitProvider>
+      <CssBaseline>
+        <BrowserRouter>
+          <Switch className="container">
+            <Route exact path="/" component={App} />
+            <Route path="/finish" component={Finish} />
+            <Route component={() => <>Invalid path</>} />
+          </Switch>
+        </BrowserRouter>
+      </CssBaseline>
+    </ZeitProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

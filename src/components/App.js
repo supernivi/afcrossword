@@ -16,8 +16,8 @@ import { useToasts, Button, Grid } from "@zeit-ui/react";
 
 function App() {
   const crossword = useRef();
-  const toasts = useToasts();
   let history = useHistory();
+  const [, setToast] = useToasts();
 
   // const focus = useCallback((_event) => {
   //   crossword.current.focus();
@@ -79,16 +79,22 @@ function App() {
   // Check if crossword correct
   const checkCrossword = () => {
     const check = crossword.current.isCrosswordCorrect();
-    console.log(check);
     if (check) {
       history.push("/finish");
     } else {
-      return;
+      console.log(check);
+      click("warning");
     }
   };
 
+  const click = (type) =>
+    setToast({
+      text: "Some answers are wrong!",
+      type,
+    });
+
   return (
-    <Page className="page mt-1">
+    <Page className="page">
       <h1 className="af-header-title">
         {/* <b>AF</b> Crossword */}
         <img
@@ -116,15 +122,7 @@ function App() {
           </Button>
         </Grid>
         <Grid>
-          <Button
-            type="success"
-            onClick={() => {
-              checkCrossword();
-              if (toasts && toasts.current) {
-                toasts.current.error("The Evil Rabbit jumped over the fence.");
-              }
-            }}
-          >
+          <Button type="success" onClick={() => checkCrossword()}>
             Submit
           </Button>
         </Grid>

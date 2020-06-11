@@ -7,16 +7,23 @@ import styled from "styled-components";
 import Logo from "../assets/img/logo.png";
 import data from "./../const/data_1";
 
+import { useHistory } from "react-router-dom";
+
+import { useToasts, Button, Grid } from "@zeit-ui/react";
+
 // in order to make this a more-comprehensive example, and to vet Crossword's
 // features, we actually implement a fair amount...
 
-function Finish() {
+function App() {
   const crossword = useRef();
+  let history = useHistory();
+  const [, setToast] = useToasts();
 
   // const focus = useCallback((_event) => {
   //   crossword.current.focus();
   // }, []);
 
+  // eslint-disable-next-line
   const fillAllAnswers = useCallback((_event) => {
     crossword.current.fillAllAnswers();
   }, []);
@@ -69,11 +76,33 @@ function Finish() {
     [addMessage]
   );
 
+  // Check if crossword correct
+  const checkCrossword = () => {
+    const check = crossword.current.isCrosswordCorrect();
+    if (check) {
+      history.push("/finish");
+    } else {
+      console.log(check);
+      click("warning");
+    }
+  };
+
+  const click = (type) =>
+    setToast({
+      text: "Some answers are wrong!",
+      type,
+    });
+
   return (
-    <Page className="page mt-1">
+    <Page className="page">
       <h1 className="af-header-title">
         {/* <b>AF</b> Crossword */}
-        <img className="af-fullLogo" src={Logo} alt="Artfervour Logo" />
+        <img
+          className="af-fullLogo"
+          src={Logo}
+          alt="Artfervour Logo"
+          onDoubleClick={fillAllAnswers}
+        />
       </h1>
 
       <CrosswordWrapper className="CrosswordWrapper mt-0">
@@ -86,35 +115,30 @@ function Finish() {
           columnBreakpoint={"1920px"}
         />
       </CrosswordWrapper>
-      <Commands className="buttonList mt-2">
-        {/* <Command onClick={focus} className="button -black">
-          Focus
-        </Command> */}
-        <Command onClick={reset} className="button -black">
-          Reset
-        </Command>
-        <Command onClick={fillAllAnswers} className="button -green">
-          Submit
-        </Command>
-      </Commands>
+      <Grid.Container gap={1} className="actualGrid" justify="space-around">
+        <Grid>
+          <Button type="secondary" onClick={reset}>
+            Reset
+          </Button>
+        </Grid>
+        <Grid>
+          <Button type="success" onClick={() => checkCrossword()}>
+            Submit
+          </Button>
+        </Grid>
+      </Grid.Container>
       {console.log(messages.toString())}
     </Page>
   );
 }
 
-export default Finish;
+export default App;
 
 // Styled-components
 
 const Page = styled.div`
   padding-left: 20px;
   padding-right: 20px;
-`;
-
-const Commands = styled.div``;
-
-const Command = styled.button`
-  margin-right: 1em;
 `;
 
 const CrosswordWrapper = styled.div`
