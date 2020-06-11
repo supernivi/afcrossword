@@ -9,7 +9,7 @@
   --color-flower: #353866;
   --color-smoke: #e4e4e4;
 
-  --borderRadius: 4px;
+  --borderRadius: 5px;
   background: #f2f2f2;
 }
 
@@ -55,6 +55,18 @@
 }
 
 // Buttons
+
+.link {
+  // Reset CSS
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: initial;
+  font-size: 100%;
+  text-decoration: none;
+  vertical-align: baseline;
+}
 
 .buttonList {
   width: 100%;

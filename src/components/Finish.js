@@ -7,23 +7,16 @@ import styled from "styled-components";
 import Logo from "../assets/img/logo.png";
 import data from "./../const/data_1";
 
-import { useHistory } from "react-router-dom";
-
-import { useToasts, Button } from "@zeit-ui/react";
-
 // in order to make this a more-comprehensive example, and to vet Crossword's
 // features, we actually implement a fair amount...
 
-function App() {
+function Finish() {
   const crossword = useRef();
-  const toasts = useToasts();
-  let history = useHistory();
 
   // const focus = useCallback((_event) => {
   //   crossword.current.focus();
   // }, []);
 
-  // eslint-disable-next-line
   const fillAllAnswers = useCallback((_event) => {
     crossword.current.fillAllAnswers();
   }, []);
@@ -76,27 +69,11 @@ function App() {
     [addMessage]
   );
 
-  // Check if crossword correct
-  const checkCrossword = () => {
-    const check = crossword.current.isCrosswordCorrect();
-    console.log(check);
-    if (check) {
-      history.push("/finish");
-    } else {
-      return;
-    }
-  };
-
   return (
     <Page className="page mt-1">
       <h1 className="af-header-title">
         {/* <b>AF</b> Crossword */}
-        <img
-          className="af-fullLogo"
-          src={Logo}
-          alt="Artfervour Logo"
-          onDoubleClick={fillAllAnswers}
-        />
+        <img className="af-fullLogo" src={Logo} alt="Artfervour Logo" />
       </h1>
 
       <CrosswordWrapper className="CrosswordWrapper mt-0">
@@ -110,27 +87,22 @@ function App() {
         />
       </CrosswordWrapper>
       <Commands className="buttonList mt-2">
+        {/* <Command onClick={focus} className="button -black">
+          Focus
+        </Command> */}
         <Command onClick={reset} className="button -black">
           Reset
         </Command>
-        <Button
-          className="button -green"
-          onClick={() => {
-            checkCrossword();
-            if (toasts && toasts.current) {
-              toasts.current.error("The Evil Rabbit jumped over the fence.");
-            }
-          }}
-        >
+        <Command onClick={fillAllAnswers} className="button -green">
           Submit
-        </Button>
+        </Command>
       </Commands>
       {console.log(messages.toString())}
     </Page>
   );
 }
 
-export default App;
+export default Finish;
 
 // Styled-components
 
