@@ -1,24 +1,22 @@
 import "./App.scss";
 
 import Crossword from "@jaredreisinger/react-crossword";
-import React, { useCallback, useRef, useState, useEffect } from "react";
+import { Button, Grid, useToasts } from "@zeit-ui/react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import Logo from "../assets/img/logo.png";
 import data from "./../const/data_1";
 
-import { useHistory } from "react-router-dom";
-
-import { useToasts, Button, Grid } from "@zeit-ui/react";
-
-// in order to make this a more-comprehensive example, and to vet Crossword's
-// features, we actually implement a fair amount...
-
 function App() {
   const crossword = useRef();
   let history = useHistory();
   const [, setToast] = useToasts();
+  const [start, setStart] = useState();
 
+  // eslint-disable-next-line
+  useEffect(() => setStart(window.performance.now()), []);
   // const focus = useCallback((_event) => {
   //   crossword.current.focus();
   // }, []);
@@ -34,10 +32,6 @@ function App() {
 
   // We don't really *do* anything with callbacks from the Crossword component,
   const [messages, setMessages] = useState([]);
-
-  useEffect(() => {
-    console.log(messages);
-  }, [messages]);
 
   const addMessage = useCallback((message) => {
     setMessages((m) => m.concat(`${message}\n`));
@@ -80,6 +74,10 @@ function App() {
   const checkCrossword = () => {
     const check = crossword.current.isCrosswordCorrect();
     if (check) {
+      var end = window.performance.now();
+      var time = ((end - start) / 1000 / 60).toFixed(2);
+      localStorage.setItem("time", time);
+      console.log(time);
       history.push("/finish");
     } else {
       console.log(check);
