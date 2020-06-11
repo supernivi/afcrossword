@@ -9,7 +9,7 @@ import data from "./../const/data_1";
 
 import { useHistory } from "react-router-dom";
 
-import { useToasts, Button } from "@zeit-ui/react";
+import { useToasts, Button, Grid } from "@zeit-ui/react";
 
 // in order to make this a more-comprehensive example, and to vet Crossword's
 // features, we actually implement a fair amount...
@@ -109,22 +109,27 @@ function App() {
           columnBreakpoint={"1920px"}
         />
       </CrosswordWrapper>
-      <Commands className="buttonList mt-2">
-        <Command onClick={reset} className="button -black">
-          Reset
-        </Command>
-        <Button
-          className="button -green"
-          onClick={() => {
-            checkCrossword();
-            if (toasts && toasts.current) {
-              toasts.current.error("The Evil Rabbit jumped over the fence.");
-            }
-          }}
-        >
-          Submit
-        </Button>
-      </Commands>
+      <Grid.Container gap={1} className="actualGrid" justify="center">
+        <Grid>
+          <Button size="large" type="secondary" onClick={reset}>
+            Reset
+          </Button>
+        </Grid>
+        <Grid>
+          <Button
+            size="large"
+            type="success"
+            onClick={() => {
+              checkCrossword();
+              if (toasts && toasts.current) {
+                toasts.current.error("The Evil Rabbit jumped over the fence.");
+              }
+            }}
+          >
+            Submit
+          </Button>
+        </Grid>
+      </Grid.Container>
       {console.log(messages.toString())}
     </Page>
   );
@@ -137,12 +142,6 @@ export default App;
 const Page = styled.div`
   padding-left: 20px;
   padding-right: 20px;
-`;
-
-const Commands = styled.div``;
-
-const Command = styled.button`
-  margin-right: 1em;
 `;
 
 const CrosswordWrapper = styled.div`
