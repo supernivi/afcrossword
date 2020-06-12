@@ -1,7 +1,7 @@
 import "./App.scss";
 
 import { Button, Grid, Spacer, Text } from "@zeit-ui/react";
-import { Facebook, Instagram } from "@zeit-ui/react-icons";
+import { Facebook, MessageCircle } from "@zeit-ui/react-icons";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
@@ -18,16 +18,18 @@ function App() {
       <img className="af-fullLogo" src={Logo} alt="Artfervour Logo" />
       <Spacer y={3} />
       <Text h3>
-        <span style={{ opacity: 0.75, fontWeight: 400 }}>Congrats you are</span>{" "}
+        <span style={{ opacity: 0.75, fontWeight: 400 }}>
+          Wow! You're a crossword{" "}
+        </span>{" "}
         <span
           style={{
             opacity: 0.8,
-            fontFamily: "serif",
             fontSize: "110%",
+            fontFamily: "serif",
             letterSpacing: -0.6,
           }}
         >
-          AWESOME!
+          wizard!
         </span>
       </Text>
       <Spacer y={1} />
@@ -47,12 +49,26 @@ function App() {
         Restart
       </Button>
       <Spacer y={0.5} />
-      <Button size="large" type="secondary" className="finalButton">
+      <Button
+        size="large"
+        type="secondary"
+        className="finalButton"
+        onClick={() => {
+          linkHandleSameWindow("https://www.artfervour.com/af-games");
+        }}
+      >
         Play More Games
       </Button>
       <Spacer y={0.5} />
-      <Button size="large" type="secondary" className="finalButton">
-        Play Motion Brush
+      <Button
+        size="large"
+        type="secondary"
+        className="finalButton"
+        onClick={() => {
+          linkHandleSameWindow("https://flipme.artfervour.com/");
+        }}
+      >
+        Play Flip Me
       </Button>
       <Spacer y={3} />
       <Text p style={textCenter}>
@@ -69,10 +85,10 @@ function App() {
           }}
         />
         <Spacer inline x={1.4} />
-        <Instagram
+        <MessageCircle
           onClick={() => {
             linkHandle(
-              "https://www.facebook.com/sharer/sharer.php?u=https://crossword.artfervour.app/"
+              "whatsapp://send?text=https://crossword.artfervour.app/"
             );
           }}
         />
@@ -85,6 +101,9 @@ export default App;
 
 function linkHandle(link) {
   window.open(link, "_blank", "noopener");
+}
+function linkHandleSameWindow(link) {
+  window.open(link, "_self", "noopener");
 }
 
 // Styled-components
