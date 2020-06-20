@@ -166,9 +166,9 @@ Crossword.defaultProps = {
   theme: {
     columnBreakpoint: "992px",
     gridBackground: "transparent",
-    cellBackground: "#bddecc",
-    focusBackground: "#f8e062",
-    highlightBackground: "#ee9e8d",
+    cellBackground: "#E6E6E6",
+    focusBackground: "#EC7154",
+    highlightBackground: "#F8E052",
     cellBorder: "transparent",
     numberColor: "#000",
     textColor: "#555",
