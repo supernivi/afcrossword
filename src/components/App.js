@@ -99,6 +99,13 @@ function App() {
       />
       <img className="af-game-Logo" src={GameLogo} alt="Artfervour Crossword" />
 
+      <p className="af-sub-text">
+        Ditch the newspaper, play our Art Crossword on any device, anywhere.
+        <br />
+        Don't forget to come back every week as the game is updated weekly
+        bringing forth a whole new challenge!
+      </p>
+
       <CrosswordWrapper className="CrosswordWrapper">
         <Crossword
           data={data}
