@@ -1,6 +1,6 @@
 import "./App.scss";
 
-import { Button, Grid, Spacer, Text } from "@zeit-ui/react";
+import { Grid, Spacer, Text } from "@zeit-ui/react";
 import { Facebook, MessageCircle } from "@zeit-ui/react-icons";
 import React from "react";
 import { useHistory } from "react-router-dom";
@@ -40,43 +40,35 @@ function App() {
         Your last game took {time} minutes
       </Text>
       <Spacer y={2.6} />
-      <Button
-        size="large"
-        type="secondary"
-        className="finalButton"
-        onClick={() => history.push("/")}
-      >
+      <button className="finalButton" onClick={() => history.push("/")}>
         Restart
-      </Button>
-      <Spacer y={0.5} />
-      <Button
-        size="large"
-        type="secondary"
-        className="finalButton"
-        onClick={() => {
-          linkHandleSameWindow("https://www.artfervour.com/af-games");
-        }}
-      >
-        Play More Games
-      </Button>
-      <Spacer y={0.5} />
-      <Button
-        size="large"
-        type="secondary"
+      </button>
+      <Spacer y={1} />
+      <button
         className="finalButton"
         onClick={() => {
           linkHandleSameWindow("https://flipme.artfervour.com/");
         }}
       >
         Play Flip Me
-      </Button>
+      </button>
+      <Spacer y={1} />
+
+      <button
+        className="finalButton"
+        onClick={() => {
+          linkHandleSameWindow("https://www.artfervour.com/af-games");
+        }}
+      >
+        Play More Games
+      </button>
       <Spacer y={3} />
       <Text p style={textCenter}>
         Did you like the crossword? Share it with your friends, so they can give
         it a shot!
       </Text>
       <Spacer y={2} />
-      <Grid.Container justify="center">
+      <Grid.Container justify="center" className="final-social-links">
         <Facebook
           onClick={() => {
             linkHandle(
