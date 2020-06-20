@@ -106,6 +106,7 @@ body {
 // Custom Crossword styles
 
 .CrosswordWrapper {
+  max-width: 1400px;
   margin-bottom: 4rem;
   margin-top: 4rem !important;
   flex-direction: row-reverse;
@@ -124,7 +125,7 @@ body {
       flex-direction: row-reverse;
       .direction {
         flex: 1;
-        padding: 0 2rem;
+        padding: 0 1rem;
         .header {
           font-size: 2rem;
           font-family: "Montserrat", sans-serif;
@@ -143,6 +144,17 @@ body {
   }
   &:hover {
     filter: drop-shadow(2px 6px 10px rgb(248, 248, 248));
+  }
+}
+
+@media screen and (min-width: 1320px) {
+  .CrosswordWrapper {
+    .crossword {
+      .grid {
+        flex: 1;
+        max-width: 460px;
+      }
+    }
   }
 }
 
@@ -205,11 +217,11 @@ body {
   }
 }
 
-.actualGrid {
+div.actualGrid {
   // opacity: 0.8;
   // padding: 1rem 0;
+  width: 60%;
   padding-top: 0;
-  width: 100%;
   flex-direction: row;
   padding-bottom: 2rem;
   justify-content: space-evenly;
@@ -235,6 +247,7 @@ body {
 
 @media screen and (max-width: 992px) {
   div.actualGrid {
+    width: 100%;
     transform: translateX(-2%);
     justify-content: space-around;
     .button {
