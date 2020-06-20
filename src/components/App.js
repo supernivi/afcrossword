@@ -95,6 +95,7 @@ function App() {
         className="af-fullLogo"
         src={Logo}
         alt="Artfervour Logo"
+        onClick={() => linkHandleSameWindow("https://www.artfervour.com/")}
         onDoubleClick={fillAllAnswers}
       />
       <img className="af-game-Logo" src={GameLogo} alt="Artfervour Crossword" />
@@ -135,6 +136,10 @@ function App() {
 
 export default App;
 
+function linkHandleSameWindow(link) {
+  window.open(link, "_self", "noopener");
+}
+
 // Styled-components
 
 const Page = styled.div`
@@ -166,7 +171,7 @@ Crossword.defaultProps = {
   theme: {
     columnBreakpoint: "992px",
     gridBackground: "transparent",
-    cellBackground: "#E6E6E6",
+    cellBackground: "#CCCCCC",
     focusBackground: "#EC7154",
     highlightBackground: "#F8E052",
     cellBorder: "transparent",
