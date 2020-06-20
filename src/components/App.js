@@ -1,12 +1,13 @@
 import "./App.scss";
 
 import Crossword from "@jaredreisinger/react-crossword";
-import { Button, Grid, useToasts } from "@zeit-ui/react";
+import { Grid, useToasts } from "@zeit-ui/react";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import Logo from "../assets/img/logo.png";
+import GameLogo from "../assets/img/crossword.png";
 import data from "./../const/data_1";
 
 function App() {
@@ -90,14 +91,13 @@ function App() {
 
   return (
     <Page className="page">
-      <h1 className="af-header-title">
-        <img
-          className="af-fullLogo"
-          src={Logo}
-          alt="Artfervour Logo"
-          onDoubleClick={fillAllAnswers}
-        />
-      </h1>
+      <img
+        className="af-fullLogo"
+        src={Logo}
+        alt="Artfervour Logo"
+        onDoubleClick={fillAllAnswers}
+      />
+      <img className="af-game-Logo" src={GameLogo} alt="Artfervour Crossword" />
 
       <CrosswordWrapper className="CrosswordWrapper">
         <Crossword
@@ -111,14 +111,10 @@ function App() {
       </CrosswordWrapper>
       <Grid.Container gap={1} className="actualGrid" justify="space-around">
         <Grid>
-          <Button type="secondary" onClick={reset}>
-            Reset
-          </Button>
+          <button onClick={reset}>Reset</button>
         </Grid>
         <Grid>
-          <Button type="success" onClick={() => checkCrossword()}>
-            Submit
-          </Button>
+          <button onClick={() => checkCrossword()}>Submit</button>
         </Grid>
       </Grid.Container>
       {console.log(messages.toString())}

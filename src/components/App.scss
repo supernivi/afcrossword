@@ -10,11 +10,13 @@
   --color-smoke: #e4e4e4;
 
   --borderRadius: 5px;
-  background: #f2f2f2;
+  // background: #fff;
 }
 
 * {
   transition: all 0.2s ease-in-out;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 html,
@@ -28,11 +30,12 @@ body {
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
+  padding-top: 1rem;
+  background: #fff;
   align-items: center;
+  padding-bottom: 2rem;
   justify-items: center;
   flex-direction: column;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
 }
 
 .mt-0 {
@@ -51,17 +54,14 @@ body {
   margin-top: 3rem !important;
 }
 
-.af-header-title {
-  color: #454545;
-  font-weight: 300;
-  font-size: 2.8rem;
-  text-align: center;
-  padding: 1rem 0;
-  font-family: "Poppins", sans-serif;
+.af-fullLogo {
+  max-height: 2.8rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
 
-.af-fullLogo {
-  width: 18rem;
+.af-game-Logo {
+  max-height: 7rem;
 }
 
 // Buttons
@@ -92,8 +92,8 @@ body {
 
 .CrosswordWrapper {
   max-width: 1400px;
-  margin-top: 4rem !important;
   margin-bottom: 4rem;
+  margin-top: 4rem !important;
   flex-direction: row-reverse;
   transition: filter 0.2s ease-in-out;
   .crossword {
@@ -111,12 +111,18 @@ body {
       .direction {
         flex: 1;
         padding: 0 2rem;
+        .header {
+          font-size: 2rem;
+          font-family: "Montserrat", sans-serif;
+        }
         .clue {
           color: #444;
-          padding-left: 1rem;
-          padding-top: 0.4rem;
+          font-weight: 500;
           border-radius: 3px;
+          padding-top: 0.4rem;
+          padding-left: 0.6rem;
           padding-bottom: 0.6rem;
+          font-family: "Montserrat", sans-serif;
         }
       }
     }
@@ -128,7 +134,7 @@ body {
 
 @media screen and (max-width: 992px) {
   .CrosswordWrapper {
-    margin: 0 !important;
+    margin: 2rem 0 !important;
     transition: filter 0.2s ease-in-out;
     .crossword {
       justify-content: space-around;
@@ -143,6 +149,9 @@ body {
         margin-top: 0.5rem;
         .direction {
           padding: 0;
+          .header {
+            font-size: 1.6rem;
+          }
           .clue {
             padding: 0.5rem;
           }
@@ -153,12 +162,13 @@ body {
 }
 
 .correct.crossword {
+  margin-bottom: 2rem;
+  flex-direction: column;
   color: #555 !important;
+  padding-top: 20px !important;
+  border-radius: 4px !important;
   text-decoration: none !important;
   background: #47d89227 !important;
-  border-radius: 12px !important;
-  padding-top: 20px !important;
-  margin-bottom: 2rem;
   .grid {
     display: none;
   }
