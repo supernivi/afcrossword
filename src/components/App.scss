@@ -73,6 +73,9 @@ body {
   .af-sub-text {
     max-width: initial;
     text-align: initial;
+    .br {
+      display: none;
+    }
   }
 }
 
@@ -103,7 +106,6 @@ body {
 // Custom Crossword styles
 
 .CrosswordWrapper {
-  max-width: 1400px;
   margin-bottom: 4rem;
   margin-top: 4rem !important;
   flex-direction: row-reverse;
@@ -146,14 +148,14 @@ body {
 
 @media screen and (max-width: 992px) {
   .CrosswordWrapper {
-    margin: 2rem 0 !important;
+    margin: 3rem 0 1rem 0 !important;
     transition: filter 0.2s ease-in-out;
     .crossword {
       justify-content: space-around;
       flex-direction: column;
       .grid {
-        flex: 1;
         align-self: center;
+        transform: scale(1.05);
         justify-content: center;
       }
       .clues {
