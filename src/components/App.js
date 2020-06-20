@@ -166,11 +166,11 @@ Crossword.defaultProps = {
   theme: {
     columnBreakpoint: "992px",
     gridBackground: "transparent",
-    cellBackground: "#dfdfdf",
-    focusBackground: "#416eea69",
-    highlightBackground: "#ccd2debd",
+    cellBackground: "#bddecc",
+    focusBackground: "#f8e062",
+    highlightBackground: "#ee9e8d",
     cellBorder: "transparent",
-    numberColor: "#333",
+    numberColor: "#000",
     textColor: "#555",
   },
 };
