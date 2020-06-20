@@ -6,8 +6,9 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
-import Logo from "../assets/img/logo.png";
 import GameLogo from "../assets/img/crossword.png";
+import Logo from "../assets/img/logo.png";
+import { linkHandleSameWindow } from "./../const/common";
 import data from "./../const/data_1";
 
 function App() {
@@ -135,10 +136,6 @@ function App() {
 }
 
 export default App;
-
-function linkHandleSameWindow(link) {
-  window.open(link, "_self", "noopener");
-}
 
 // Styled-components
 

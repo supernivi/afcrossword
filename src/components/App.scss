@@ -58,6 +58,9 @@ body {
   max-height: 2.8rem;
   padding-top: 1rem;
   padding-bottom: 0.5rem;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .af-game-Logo {

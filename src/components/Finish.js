@@ -3,8 +3,10 @@ import "./App.scss";
 import { Grid, Spacer, Text } from "@zeit-ui/react";
 import { Facebook, MessageCircle } from "@zeit-ui/react-icons";
 import React from "react";
-import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
+
+import { linkHandleSameWindow, linkHandle, gaLog } from "./../const/common";
 
 import Logo from "../assets/img/logo.png";
 
@@ -40,7 +42,13 @@ function App() {
         Your last game took {time} minutes
       </Text>
       <Spacer y={2.6} />
-      <button className="finalButton" onClick={() => history.push("/")}>
+      <button
+        className="finalButton"
+        onClick={() => {
+          gaLog("User clicked on button", "user restarted the game.");
+          history.push("/");
+        }}
+      >
         Restart
       </button>
       <Spacer y={1} />
@@ -90,13 +98,6 @@ function App() {
 }
 
 export default App;
-
-function linkHandle(link) {
-  window.open(link, "_blank", "noopener");
-}
-function linkHandleSameWindow(link) {
-  window.open(link, "_self", "noopener");
-}
 
 // Styled-components
 
