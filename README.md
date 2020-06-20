@@ -2,13 +2,11 @@
 
 Weekly Crossword puzzle for Art Fervour Engagement made in React.js.
 
----
-
 Desktop:
 ![Desktop](previews/medium_width_afcrossword.png)
 
 Mobile:  
-<img src="previews/scene_height_afcrossword.png" style="max-width: 320px"></img>
+<img src="previews/scene_height_afcrossword.png" style="width: 320px"></img>
 
 #### Install
 
@@ -18,5 +16,6 @@ Install dependencies
 Start app in local server  
 `npm start`
 
-LICENSE `MIT`
+#### LICENSE `MIT`
+
 (Excluding logo & Branding)
