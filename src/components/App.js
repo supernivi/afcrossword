@@ -109,12 +109,16 @@ function App() {
           columnBreakpoint={"1920px"}
         />
       </CrosswordWrapper>
-      <Grid.Container gap={1} className="actualGrid" justify="space-around">
+      <Grid.Container className="actualGrid">
         <Grid>
-          <button onClick={reset}>Reset</button>
+          <button className="button" onClick={reset}>
+            Reset
+          </button>
         </Grid>
         <Grid>
-          <button onClick={() => checkCrossword()}>Submit</button>
+          <button className="button" onClick={() => checkCrossword()}>
+            Submit
+          </button>
         </Grid>
       </Grid.Container>
       {console.log(messages.toString())}
