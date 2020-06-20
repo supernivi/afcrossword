@@ -41,7 +41,7 @@ ReactDOM.render(
   <React.StrictMode>
     <ZeitProvider>
       <CssBaseline>
-        <BrowserRouter>
+        <BrowserRouter history={history}>
           <Switch className="container">
             <Route exact path="/" component={App} />
             <Route path="/finish" component={Finish} />
