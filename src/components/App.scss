@@ -19,6 +19,8 @@
 
 html,
 body {
+  font-family: Montserrat, "Open Sans", "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Helvetica Neue", sans-serif;
   min-height: 100vh !important;
 }
 
@@ -89,28 +91,64 @@ body {
 // Custom Crossword styles
 
 .CrosswordWrapper {
+  max-width: 1400px;
+  margin-top: 4rem !important;
+  margin-bottom: 4rem;
+  flex-direction: row-reverse;
   transition: filter 0.2s ease-in-out;
+  .crossword {
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    .grid {
+      flex: 0.8;
+      justify-content: center;
+      align-self: center;
+    }
+    .clues {
+      display: flex;
+      flex: 0 1 48%;
+      flex-direction: row-reverse;
+      .direction {
+        flex: 1;
+        padding: 0 2rem;
+        .clue {
+          color: #444;
+          padding-left: 1rem;
+          padding-top: 0.4rem;
+          border-radius: 3px;
+          padding-bottom: 0.6rem;
+        }
+      }
+    }
+  }
   &:hover {
     filter: drop-shadow(2px 6px 10px rgb(248, 248, 248));
   }
 }
 
-.clue {
-  color: #444;
-  padding-left: 1rem;
-  padding-top: 0.4rem;
-  border-radius: 3px;
-  padding-bottom: 0.6rem;
-}
-
-.grid .clue {
-  background: #000 !important;
-}
-
-.crossword {
-  .clues {
-    margin-top: 0;
-    padding: 0;
+@media screen and (max-width: 992px) {
+  .CrosswordWrapper {
+    margin: 0 !important;
+    transition: filter 0.2s ease-in-out;
+    .crossword {
+      justify-content: space-around;
+      flex-direction: column;
+      .grid {
+        align-self: center;
+        justify-content: center;
+      }
+      .clues {
+        padding: 0;
+        flex-direction: column;
+        margin-top: 0.5rem;
+        .direction {
+          padding: 0;
+          .clue {
+            padding: 0.5rem;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -160,21 +198,3 @@ body {
   opacity: 0.72;
   min-width: 16rem !important;
 }
-
-// .af-game-bold-title {
-//   font-weight: 700;
-//   font-size: 3rem;
-//   margin-top: 40%;
-//   text-align: center;
-//   letter-spacing: -1px;
-//   transform: rotate(45deg);
-//   position: absolute;
-//   color: #44484925 !important;
-//   font-family: "Montserrat", sans-serif;
-//   &::before {
-//     content: "GASD";
-//     transform: rotate(90deg), translate(1rem) !important;
-//   }
-// }
-
-// temp

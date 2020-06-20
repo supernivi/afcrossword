@@ -17,9 +17,6 @@ function App() {
 
   // eslint-disable-next-line
   useEffect(() => setStart(window.performance.now()), []);
-  // const focus = useCallback((_event) => {
-  //   crossword.current.focus();
-  // }, []);
 
   // eslint-disable-next-line
   const fillAllAnswers = useCallback((_event) => {
@@ -87,7 +84,7 @@ function App() {
 
   const click = (type) =>
     setToast({
-      text: "Some answers are wrong!",
+      text: "Some answers are wrong or missing!",
       type,
     });
 
@@ -102,7 +99,7 @@ function App() {
         />
       </h1>
 
-      <CrosswordWrapper className="CrosswordWrapper mt-0">
+      <CrosswordWrapper className="CrosswordWrapper">
         <Crossword
           data={data}
           ref={crossword}
@@ -140,7 +137,7 @@ const Page = styled.div`
 
 const CrosswordWrapper = styled.div`
   margin-top: 2em;
-  max-width: 30em;
+  // max-width: 30em;
 
   /* and some fun making use of the defined class names */
 
@@ -160,7 +157,7 @@ const CrosswordWrapper = styled.div`
 
 Crossword.defaultProps = {
   theme: {
-    columnBreakpoint: "1920px",
+    columnBreakpoint: "992px",
     gridBackground: "transparent",
     cellBackground: "#dfdfdf",
     focusBackground: "#416eea69",
