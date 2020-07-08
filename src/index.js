@@ -3,12 +3,12 @@ import "./index.css";
 import { CssBaseline, ZeitProvider } from "@zeit-ui/react";
 import React from "react";
 import ReactDOM from "react-dom";
-import ReactGA from "react-ga";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import App from "./components/App";
 import Finish from "./components/Finish";
 import * as serviceWorker from "./serviceWorker";
+import { gaInitialize, pageView } from "./const/common";
 
 // var userId, user;
 
@@ -16,7 +16,8 @@ import * as serviceWorker from "./serviceWorker";
 
 const Index = () => {
   React.useEffect(() => {
-    ReactGA.initialize("UA-131255348-11");
+    gaInitialize();
+    pageView("/");
   }, []);
 
   return (

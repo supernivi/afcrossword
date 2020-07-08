@@ -27,10 +27,21 @@ function gaLog(event, action) {
   });
 }
 
+function gaInitialize() {
+  ReactGA.initialize("UA-131255348-11");
+}
+
 function pageView(page) {
   console.log(page);
   ReactGA.set({ page }); // Update the user's current page
   ReactGA.pageview(page);
 }
 
-export { generateUser, linkHandle, linkHandleSameWindow, gaLog, pageView };
+export {
+  generateUser,
+  linkHandle,
+  linkHandleSameWindow,
+  gaLog,
+  pageView,
+  gaInitialize,
+};
