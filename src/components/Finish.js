@@ -3,16 +3,24 @@ import "./App.scss";
 import { Grid, Spacer, Text } from "@zeit-ui/react";
 import { Facebook, MessageCircle } from "@zeit-ui/react-icons";
 import React from "react";
-import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-
-import { linkHandleSameWindow, linkHandle, gaLog } from "./../const/common";
+import styled from "styled-components";
 
 import Logo from "../assets/img/logo.png";
+import {
+  gaLog,
+  linkHandle,
+  linkHandleSameWindow,
+  pageView,
+} from "./../const/common";
 
-function App() {
+function Finish() {
   let history = useHistory();
   const time = localStorage.getItem("time");
+
+  React.useEffect(() => {
+    pageView(window.location.pathname + window.location.search);
+  }, []);
 
   return (
     <Page className="page">
@@ -45,7 +53,7 @@ function App() {
       <button
         className="finalButton"
         onClick={() => {
-          gaLog("User clicked on button", "user restarted the game.");
+          gaLog("Button Click", "user restarted the game.");
           history.push("/");
         }}
       >
@@ -97,7 +105,7 @@ function App() {
   );
 }
 
-export default App;
+export default Finish;
 
 // Styled-components
 

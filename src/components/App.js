@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 import GameLogo from "../assets/img/crossword.png";
 import Logo from "../assets/img/logo.png";
-import { linkHandleSameWindow } from "./../const/common";
+import { linkHandleSameWindow, pageView, gaLog } from "./../const/common";
 import data from "./../const/data_1";
 
 function App() {
@@ -18,7 +18,10 @@ function App() {
   const [start, setStart] = useState();
 
   // eslint-disable-next-line
-  useEffect(() => setStart(window.performance.now()), []);
+  useEffect(() => {
+    setStart(window.performance.now());
+    pageView(window.location.pathname + window.location.search);
+  }, []);
 
   // eslint-disable-next-line
   const fillAllAnswers = useCallback((_event) => {
@@ -97,9 +100,13 @@ function App() {
         src={Logo}
         alt="Artfervour Logo"
         onClick={() => linkHandleSameWindow("https://www.artfervour.com/")}
+      />
+      <img
+        className="af-game-Logo"
+        src={GameLogo}
+        alt="Artfervour Crossword"
         onDoubleClick={fillAllAnswers}
       />
-      <img className="af-game-Logo" src={GameLogo} alt="Artfervour Crossword" />
 
       <p className="af-sub-text">
         Ditch the newspaper, play our Art Crossword on any device, anywhere.
@@ -120,12 +127,24 @@ function App() {
       </CrosswordWrapper>
       <Grid.Container className="actualGrid">
         <Grid>
-          <button className="button" onClick={reset}>
+          <button
+            className="button"
+            onClick={() => {
+              reset();
+              gaLog("Button Click", "User Pressed on reset");
+            }}
+          >
             Reset
           </button>
         </Grid>
         <Grid>
-          <button className="button" onClick={() => checkCrossword()}>
+          <button
+            className="button"
+            onClick={() => {
+              checkCrossword();
+              gaLog("Button Click", "User clicked on Submit");
+            }}
+          >
             Submit
           </button>
         </Grid>

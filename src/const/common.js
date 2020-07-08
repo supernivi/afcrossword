@@ -7,7 +7,7 @@ function generateUser() {
 function linkHandle(link) {
   window.open(link, "_blank", "noopener");
   ReactGA.event({
-    category: "User clicked on button",
+    category: "Button Click",
     action: "user navigated to " + link,
   });
 }
@@ -15,7 +15,7 @@ function linkHandle(link) {
 function linkHandleSameWindow(link) {
   window.open(link, "_self", "noopener");
   ReactGA.event({
-    category: "User clicked on button",
+    category: "Button Click",
     action: "user navigated to " + link,
   });
 }
@@ -27,4 +27,10 @@ function gaLog(event, action) {
   });
 }
 
-export { generateUser, linkHandle, linkHandleSameWindow, gaLog };
+function pageView(page) {
+  console.log(page);
+  ReactGA.set({ page }); // Update the user's current page
+  ReactGA.pageview(page);
+}
+
+export { generateUser, linkHandle, linkHandleSameWindow, gaLog, pageView };
