@@ -27,8 +27,8 @@ function gaLog(event, action) {
   });
 }
 
-function gaInitialize() {
-  ReactGA.initialize("UA-131255348-11");
+async function gaInitialize() {
+  return ReactGA.initialize("UA-131255348-11");
 }
 
 function pageView(page) {

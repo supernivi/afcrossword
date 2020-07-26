@@ -1,15 +1,15 @@
-import "./App.scss";
+import './App.scss';
 
-import Crossword from "@jaredreisinger/react-crossword";
-import { Grid, useToasts } from "@zeit-ui/react";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useHistory } from "react-router-dom";
-import styled from "styled-components";
+import Crossword from '@jaredreisinger/react-crossword';
+import { Grid, useToasts } from '@zeit-ui/react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 
-import GameLogo from "../assets/img/crossword.png";
-import Logo from "../assets/img/logo.png";
-import { linkHandleSameWindow, pageView, gaLog } from "./../const/common";
-import data from "./../const/data_1";
+import GameLogo from '../assets/img/crossword.png';
+import Logo from '../assets/img/logo.png';
+import { gaLog, linkHandleSameWindow, pageView } from './../const/common';
+import data from './../const/data_26_7';
 
 function App() {
   const crossword = useRef();
