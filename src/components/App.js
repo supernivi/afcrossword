@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import GameLogo from '../assets/img/crossword.png';
 import Logo from '../assets/img/logo.png';
 import { gaLog, linkHandleSameWindow, pageView } from './../const/common';
-import data from './../const/data_26_7';
+import data from './../const/data_16_8';
 
 function App() {
   const crossword = useRef();

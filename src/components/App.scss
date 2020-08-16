@@ -125,7 +125,7 @@ body {
     .clues {
       display: flex;
       flex: 0 1 48%;
-      // flex-direction: row-reverse;
+      flex-direction: row-reverse;
       .direction {
         flex: 1;
         padding: 0 1rem;
