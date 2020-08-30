@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import GameLogo from '../assets/img/crossword.png';
 import Logo from '../assets/img/logo.png';
 import { gaLog, linkHandleSameWindow, pageView } from './../const/common';
-import data from './../const/data_16_8';
+import data from './../const/data/data_30_8';
 
 function App() {
   const crossword = useRef();
@@ -33,7 +33,7 @@ function App() {
   }, []);
 
   // We don't really *do* anything with callbacks from the Crossword component,
-  const [messages, setMessages] = useState([]);
+  const [, setMessages] = useState([]);
 
   const addMessage = useCallback((message) => {
     setMessages((m) => m.concat(`${message}\n`));
@@ -82,7 +82,6 @@ function App() {
       console.log(time);
       history.push("/finish");
     } else {
-      console.log(check);
       click("warning");
     }
   };
@@ -149,7 +148,6 @@ function App() {
           </button>
         </Grid>
       </Grid.Container>
-      {console.log(messages.toString())}
     </Page>
   );
 }
