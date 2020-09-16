@@ -1,289 +1,305 @@
 :root {
-  --color-dark: #161616;
-  --color-ocean: #416dea;
-  --color-grass: #40d690;
-  --color-snow: #ffffff;
-  --color-salmon: #f32c52;
-  --color-sun: #feee7d;
-  --color-alge: #7999a9;
-  --color-flower: #353866;
-  --color-smoke: #e4e4e4;
-
-  --borderRadius: 5px;
-  // background: #fff;
+    --color-dark: #161616;
+    --color-ocean: #416dea;
+    --color-grass: #40d690;
+    --color-snow: #ffffff;
+    --color-salmon: #f32c52;
+    --color-sun: #feee7d;
+    --color-alge: #7999a9;
+    --color-flower: #353866;
+    --color-smoke: #e4e4e4;
+    --borderRadius: 5px;
+    // background: #fff;
 }
 
 * {
-  transition: all 0.2s ease-in-out;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
+    transition: all 0.2s ease-in-out;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
 
 html,
 body {
-  font-family: Montserrat, "Open Sans", "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-    Cantarell, "Helvetica Neue", sans-serif;
-  min-height: 100vh !important;
+    font-family: Montserrat, "Open Sans", "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    min-height: 100vh !important;
 }
 
 .page {
-  display: flex;
-  flex-wrap: wrap;
-  overflow: hidden;
-  padding-top: 1rem;
-  background: #fff;
-  align-items: center;
-  padding-bottom: 2rem;
-  justify-items: center;
-  flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding-top: 1rem;
+    background: #fff;
+    align-items: center;
+    padding-bottom: 2rem;
+    justify-items: center;
+    flex-direction: column;
 }
 
 .mt-0 {
-  margin-top: 0rem !important;
+    margin-top: 0rem !important;
 }
 
 .mt-1 {
-  margin-top: 1rem !important;
+    margin-top: 1rem !important;
 }
 
 .mt-2 {
-  margin-top: 2rem !important;
+    margin-top: 2rem !important;
 }
 
 .mt-3 {
-  margin-top: 3rem !important;
+    margin-top: 3rem !important;
 }
 
 .af-fullLogo {
-  max-height: 2.8rem;
-  padding-top: 1rem;
-  padding-bottom: 0.5rem;
-  &:hover {
-    cursor: pointer;
-  }
+    max-height: 2.8rem;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .af-game-Logo {
-  max-height: 7rem;
+    max-height: 7rem;
 }
 
 .af-sub-text {
-  max-width: 75%;
-  text-align: center;
+    max-width: 75%;
+    text-align: center;
 }
 
 @media screen and (max-width: 992px) {
-  .af-sub-text {
-    max-width: initial;
-    text-align: initial;
-    .br {
-      display: none;
+    .af-sub-text {
+        max-width: initial;
+        text-align: initial;
+        .br {
+            display: none;
+        }
     }
-  }
 }
 
 // Buttons
-
 .link {
-  // Reset CSS
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  color: initial;
-  font-size: 100%;
-  text-decoration: none;
-  vertical-align: baseline;
+    // Reset CSS
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    color: initial;
+    font-size: 100%;
+    text-decoration: none;
+    vertical-align: baseline;
 }
 
 .buttonList {
-  width: 100%;
-  opacity: 0.9;
-  display: flex;
-  flex-wrap: wrap;
-  overflow: visible;
-  align-items: center;
-  justify-content: center;
+    width: 100%;
+    opacity: 0.9;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: visible;
+    align-items: center;
+    justify-content: center;
 }
 
 // Custom Crossword styles
-
 .CrosswordWrapper {
-  max-width: 1400px;
-  margin-bottom: 4rem;
-  margin-top: 4rem !important;
-  flex-direction: row-reverse;
-  transition: filter 0.2s ease-in-out;
-  .crossword {
-    justify-content: space-around;
+    max-width: 1400px;
+    margin-bottom: 4rem;
+    margin-top: 4rem !important;
     flex-direction: row-reverse;
-    .grid {
-      flex: 0.8;
-      justify-content: center;
-      align-self: center;
-    }
-    .clues {
-      display: flex;
-      flex: 0 1 48%;
-      flex-direction: row-reverse;
-      .direction {
-        flex: 1;
-        padding: 0 1rem;
-        .header {
-          font-size: 2rem;
-          font-family: "Montserrat", sans-serif;
+    transition: filter 0.2s ease-in-out;
+    .crossword {
+        justify-content: space-around;
+        flex-direction: row-reverse;
+        .grid {
+            flex: 0.8;
+            justify-content: center;
+            align-self: center;
         }
-        .clue {
-          color: #444;
-          font-weight: 500;
-          border-radius: 3px;
-          padding-top: 0.4rem;
-          padding-left: 0.6rem;
-          padding-bottom: 0.6rem;
-          font-family: "Montserrat", sans-serif;
+        .clues {
+            display: flex;
+            flex: 0 1 48%;
+            flex-direction: row-reverse;
+            .direction {
+                flex: 1;
+                padding: 0 1rem;
+                .header {
+                    font-size: 2rem;
+                    font-family: "Montserrat", sans-serif;
+                }
+                .clue {
+                    color: #444;
+                    font-weight: 500;
+                    border-radius: 3px;
+                    padding-top: 0.4rem;
+                    padding-left: 0.6rem;
+                    padding-bottom: 0.6rem;
+                    font-family: "Montserrat", sans-serif;
+                }
+            }
         }
-      }
     }
-  }
-  &:hover {
-    filter: drop-shadow(2px 6px 10px rgb(248, 248, 248));
-  }
+    &:hover {
+        filter: drop-shadow(2px 6px 10px rgb(248, 248, 248));
+    }
 }
 
 @media screen and (min-width: 1320px) {
-  .CrosswordWrapper {
-    .crossword {
-      .grid {
-        flex: 1;
-        max-width: 460px;
-      }
+    .CrosswordWrapper {
+        .crossword {
+            .grid {
+                flex: 1;
+                max-width: 460px;
+            }
+        }
     }
-  }
 }
 
 @media screen and (max-width: 992px) {
-  .CrosswordWrapper {
-    margin: 3rem 0 1rem 0 !important;
-    transition: filter 0.2s ease-in-out;
-    .crossword {
-      justify-content: space-around;
-      flex-direction: column;
-      .grid {
-        align-self: center;
-        transform: scale(1.05);
-        justify-content: center;
-      }
-      .clues {
-        padding: 0;
-        flex-direction: column;
-        margin-top: 0.5rem;
-        .direction {
-          padding: 0;
-          .header {
-            font-size: 1.6rem;
-          }
-          .clue {
-            padding: 0.5rem;
-          }
+    .CrosswordWrapper {
+        margin: 3rem 0 1rem 0 !important;
+        transition: filter 0.2s ease-in-out;
+        .crossword {
+            justify-content: space-around;
+            flex-direction: column;
+            .grid {
+                align-self: center;
+                transform: scale(1.05);
+                justify-content: center;
+            }
+            .clues {
+                padding: 0;
+                flex-direction: column;
+                margin-top: 0.5rem;
+                .direction {
+                    padding: 0;
+                    .header {
+                        font-size: 1.6rem;
+                    }
+                    .clue {
+                        padding: 0.5rem;
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }
 
 .correct.crossword {
-  margin-bottom: 2rem;
-  flex-direction: column;
-  color: #555 !important;
-  padding-top: 20px !important;
-  border-radius: 4px !important;
-  text-decoration: none !important;
-  background: #47d89227 !important;
-  .grid {
-    display: none;
-  }
-  .clues {
-    display: none;
-  }
-  &::before {
-    content: "All answers are Correct!";
-    font-size: 2rem;
-    text-align: center;
-    padding: 2rem;
-  }
-  &::after {
-    color: #888;
-    padding: 2rem;
-    font-size: 0.8rem;
-    text-align: center;
-    content: "Tap on submit to continue";
-  }
+    margin-bottom: 2rem;
+    flex-direction: column;
+    color: #555 !important;
+    padding-top: 20px !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    background: #47d89227 !important;
+    .grid {
+        display: none;
+    }
+    .clues {
+        display: none;
+    }
+    &::before {
+        content: "All answers are Correct!";
+        font-size: 2rem;
+        text-align: center;
+        padding: 2rem;
+    }
+    &::after {
+        color: #888;
+        padding: 2rem;
+        font-size: 0.8rem;
+        text-align: center;
+        content: "Tap on submit to continue";
+    }
 }
 
 div.actualGrid {
-  // opacity: 0.8;
-  // padding: 1rem 0;
-  width: 60%;
-  padding-top: 0;
-  flex-direction: row;
-  padding-bottom: 2rem;
-  justify-content: space-evenly;
-  .button {
-    border: none;
-    font-weight: 900;
-    font-size: 1.4rem;
-    box-sizing: border-box;
-    padding: 0.4rem 3.2rem;
-    background-color: #f8e052;
-    text-transform: uppercase;
-    border-top: 2px solid #000;
-    border-left: 2px solid #000;
-    box-shadow: #000 1px 1px 0, #000 2px 2px 0, #000 3px 3px 0, #000 4px 4px 0, #000 5px 5px 0, #000 6px 6px 0,
-      #000 7px 7px 0, #000 8px 8px 0, #000 9px 9px 0, #000 10px 10px 0;
-    font-family: "Montserrat", sans-serif;
-    &:hover,
-    &focus {
-      background-color: #f8f8f8;
+    // opacity: 0.8;
+    // padding: 1rem 0;
+    width: 60%;
+    padding-top: 0;
+    flex-direction: row;
+    padding-bottom: 2rem;
+    justify-content: space-evenly;
+    .button {
+        border: none;
+        font-weight: 900;
+        font-size: 1.4rem;
+        box-sizing: border-box;
+        padding: 0.4rem 3.2rem;
+        background-color: #f8e052;
+        text-transform: uppercase;
+        border-top: 2px solid #000;
+        border-left: 2px solid #000;
+        box-shadow: #000 1px 1px 0, #000 2px 2px 0, #000 3px 3px 0, #000 4px 4px 0, #000 5px 5px 0, #000 6px 6px 0, #000 7px 7px 0, #000 8px 8px 0, #000 9px 9px 0, #000 10px 10px 0;
+        font-family: "Montserrat", sans-serif;
+        &:hover,
+        &focus {
+            background-color: #f8f8f8;
+        }
     }
-  }
 }
 
 @media screen and (max-width: 992px) {
-  div.actualGrid {
-    width: 100%;
-    transform: translateX(-2%);
-    justify-content: space-around;
-    .button {
-      padding: 0.4rem 2rem;
-      box-shadow: #000 1px 1px 0, #000 2px 2px 0, #000 3px 3px 0, #000 4px 4px 0, #000 5px 5px 0, #000 6px 6px 0,
-        #000 7px 7px 0, #000 8px 8px 0;
+    div.actualGrid {
+        width: 100%;
+        transform: translateX(-2%);
+        justify-content: space-around;
+        .button {
+            padding: 0.4rem 2rem;
+            box-shadow: #000 1px 1px 0, #000 2px 2px 0, #000 3px 3px 0, #000 4px 4px 0, #000 5px 5px 0, #000 6px 6px 0, #000 7px 7px 0, #000 8px 8px 0;
+        }
     }
-  }
 }
 
 // Final Page Specific
 button.finalButton {
-  border: none;
-  font-weight: 900;
-  font-size: 1.4rem;
-  box-sizing: border-box;
-  padding: 0.4rem 0;
-  background-color: #f8e052;
-  text-transform: uppercase;
-  border-top: 2px solid #000;
-  border-left: 2px solid #000;
-  box-shadow: #000 1px 1px 0, #000 2px 2px 0, #000 3px 3px 0, #000 4px 4px 0, #000 5px 5px 0, #000 6px 6px 0,
-    #000 7px 7px 0, #000 8px 8px 0, #000 9px 9px 0, #000 10px 10px 0;
-  font-family: "Montserrat", sans-serif;
-  &:hover,
-  &focus {
-    background-color: #f8f8f8;
-  }
-  box-sizing: border-box;
-  min-width: 16rem;
+    border: none;
+    font-weight: 900;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+    padding: 0.4rem 0;
+    background-color: #f8e052;
+    text-transform: uppercase;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    box-shadow: #000 1px 1px 0, #000 2px 2px 0, #000 3px 3px 0, #000 4px 4px 0, #000 5px 5px 0, #000 6px 6px 0, #000 7px 7px 0, #000 8px 8px 0, #000 9px 9px 0, #000 10px 10px 0;
+    font-family: "Montserrat", sans-serif;
+    &:hover,
+    &focus {
+        background-color: #f8f8f8;
+    }
+    box-sizing: border-box;
+    min-width: 16rem;
 }
 
 .final-social-links {
-  transform: scale(1.5);
-  padding-bottom: 6rem;
+    transform: scale(1.5);
+    padding-bottom: 6rem;
+}
+
+.scrollmenu {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    background: none;
+}
+
+.scrollmenu div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 2rem;
+    min-width: 22rem;
+    height: 8rem;
+    background: #F9DB59;
+    border: 1px solid #CACACA;
 }

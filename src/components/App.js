@@ -9,51 +9,78 @@ import styled from 'styled-components';
 import GameLogo from '../assets/img/crossword.png';
 import Logo from '../assets/img/logo.png';
 import { gaLog, linkHandleSameWindow, pageView } from './../const/common';
-import data from './../const/data/data_30_8';
+import crosswordfirst from './../const/data/data_30_8';
+import crosswordsecond from './../const/data/data_1';
+import crosswordthird from './../const/data/data_26_7';
+import crosswordforth from './../const/data/data_16_8';
+
+
+function useQuery() {
+    return new URLSearchParams(window.location.search);
+}
+
 
 function App() {
-  const crossword = useRef();
-  let history = useHistory();
-  const [, setToast] = useToasts();
-  const [start, setStart] = useState();
+    const crosswordlist = [crosswordfirst, crosswordsecond, crosswordthird, crosswordforth];
+    let query = useQuery().get('crossword');
+    const crossword = useRef();
+    let history = useHistory();
+    const [, setToast] = useToasts();
+    const [start, setStart] = useState();
 
-  // eslint-disable-next-line
-  useEffect(() => {
-    setStart(window.performance.now());
-    pageView(window.location.pathname + window.location.search);
-  }, []);
 
-  // eslint-disable-next-line
-  const fillAllAnswers = useCallback((_event) => {
-    crossword.current.fillAllAnswers();
-  }, []);
+    const getCrossWordData = () => {
+        switch (query) {
+            case "1":
+                return crosswordlist[0];
+            case "2":
+                return crosswordlist[1];
+            case "3":
+                return crosswordlist[2];
+            case "4":
+                return crosswordlist[3];
+            default:
+                return crosswordlist[0];
+        }
 
-  const reset = useCallback((_event) => {
-    crossword.current.reset();
-  }, []);
+    }
 
-  // We don't really *do* anything with callbacks from the Crossword component,
-  const [, setMessages] = useState([]);
+    // eslint-disable-next-line
+    useEffect(() => {
+        setStart(window.performance.now());
+        pageView(window.location.pathname + window.location.search);
+    }, []);
 
-  const addMessage = useCallback((message) => {
-    setMessages((m) => m.concat(`${message}\n`));
-  }, []);
+    // eslint-disable-next-line
+    const fillAllAnswers = useCallback((_event) => {
+        crossword.current.fillAllAnswers();
+    }, []);
 
-  // onCorrect is called with the direction, number, and the correct answer.
-  const onCorrect = useCallback(
-    (direction, number, answer) => {
-      addMessage(`onCorrect: "${direction}", "${number}", "${answer}"`);
-    },
-    [addMessage]
-  );
+    const reset = useCallback((_event) => {
+        crossword.current.reset();
+    }, []);
 
-  // onLoadedCorrect is called with an array of the already-correct answers,
-  // each element itself is an array with the same values as in onCorrect: the
-  // direction, number, and the correct answer.
-  const onLoadedCorrect = useCallback(
-    (answers) => {
-      addMessage(
-        `onLoadedCorrect:\n${answers
+    // We don't really *do* anything with callbacks from the Crossword component,
+    const [, setMessages] = useState([]);
+
+    const addMessage = useCallback((message) => {
+        setMessages((m) => m.concat(`${message}\n`));
+    }, []);
+
+    // onCorrect is called with the direction, number, and the correct answer.
+    const onCorrect = useCallback(
+        (direction, number, answer) => {
+            addMessage(`onCorrect: "${direction}", "${number}", "${answer}"`);
+        }, [addMessage]
+    );
+
+    // onLoadedCorrect is called with an array of the already-correct answers,
+    // each element itself is an array with the same values as in onCorrect: the
+    // direction, number, and the correct answer.
+    const onLoadedCorrect = useCallback(
+            (answers) => {
+                addMessage(
+                        `onLoadedCorrect:\n${answers
           .map(
             ([direction, number, answer]) =>
               `    - "${direction}", "${number}", "${answer}"`
@@ -116,7 +143,7 @@ function App() {
 
       <CrosswordWrapper className="CrosswordWrapper">
         <Crossword
-          data={data}
+          data={getCrossWordData()}
           ref={crossword}
           onCorrect={onCorrect}
           onLoadedCorrect={onLoadedCorrect}

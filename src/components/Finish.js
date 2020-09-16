@@ -26,7 +26,7 @@ function Finish() {
     <Page className="page">
       <Spacer y={1} />
       <img className="af-fullLogo" src={Logo} alt="Artfervour Logo" />
-      <Spacer y={3} />
+      <Spacer y={2} />
       <Text h3>
         <span style={{ opacity: 0.75, fontWeight: 400 }}>
           Wow! You're a crossword{" "}
@@ -49,7 +49,7 @@ function Finish() {
       <Text p style={opacity(0.6)}>
         Your last game took {time} minutes
       </Text>
-      <Spacer y={2.6} />
+      <Spacer y={1} />
       <button
         className="finalButton"
         onClick={() => {
@@ -68,17 +68,14 @@ function Finish() {
       >
         Play Flip Me
       </button>
-      <Spacer y={1} />
-
-      <button
-        className="finalButton"
-        onClick={() => {
-          linkHandleSameWindow("https://www.artfervour.com/af-games");
-        }}
-      >
-        Play More Games
-      </button>
-      <Spacer y={3} />
+      <Spacer y={4} />
+      <div class="scrollmenu">
+        <div onClick={() => history.push("/?crossword=1")}>First</div>
+        <div onClick={() => history.push("/?crossword=2")}>Second</div>
+        <div onClick={() => history.push("/?crossword=3")}>Third</div>
+        <div onClick={() => history.push("/?crossword=4")}>Forth</div>
+      </div>
+      <Spacer y={2.5} />
       <Text p style={textCenter}>
         Did you like the crossword? Share it with your friends, so they can give
         it a shot!
