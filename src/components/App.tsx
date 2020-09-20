@@ -1,5 +1,6 @@
 import './App.scss';
 
+// @ts-ignore
 import Crossword from '@jaredreisinger/react-crossword';
 import { Grid, useToasts } from '@zeit-ui/react';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -8,14 +9,14 @@ import styled from 'styled-components';
 
 import GameLogo from '../assets/img/crossword.png';
 import Logo from '../assets/img/logo.png';
-import { gaLog, linkHandleSameWindow, pageView } from './../const/common';
-import data from './../const/data/data_30_8';
+import { gaLog, linkHandleSameWindow, pageView } from '../const/common';
+import data from '../const/data/data_30_8';
 
 function App() {
-  const crossword = useRef();
   let history = useHistory();
+  const crossword = useRef<any>();
   const [, setToast] = useToasts();
-  const [start, setStart] = useState();
+  const [start, setStart] = useState<number>();
 
   // eslint-disable-next-line
   useEffect(() => {
@@ -28,67 +29,27 @@ function App() {
     crossword.current.fillAllAnswers();
   }, []);
 
-  const reset = useCallback((_event) => {
+  const reset = useCallback(() => {
     crossword.current.reset();
   }, []);
-
-  // We don't really *do* anything with callbacks from the Crossword component,
-  const [, setMessages] = useState([]);
-
-  const addMessage = useCallback((message) => {
-    setMessages((m) => m.concat(`${message}\n`));
-  }, []);
-
-  // onCorrect is called with the direction, number, and the correct answer.
-  const onCorrect = useCallback(
-    (direction, number, answer) => {
-      addMessage(`onCorrect: "${direction}", "${number}", "${answer}"`);
-    },
-    [addMessage]
-  );
-
-  // onLoadedCorrect is called with an array of the already-correct answers,
-  // each element itself is an array with the same values as in onCorrect: the
-  // direction, number, and the correct answer.
-  const onLoadedCorrect = useCallback(
-    (answers) => {
-      addMessage(
-        `onLoadedCorrect:\n${answers
-          .map(
-            ([direction, number, answer]) =>
-              `    - "${direction}", "${number}", "${answer}"`
-          )
-          .join("\n")}`
-      );
-    },
-    [addMessage]
-  );
-
-  // onCellChange is called with the row, column, and character.
-  const onCellChange = useCallback(
-    (row, col, char) => {
-      addMessage(`onCellChange: "${row}", "${col}", "${char}"`);
-    },
-    [addMessage]
-  );
 
   // Check if crossword correct
   const checkCrossword = () => {
     const check = crossword.current.isCrosswordCorrect();
     if (check) {
       var end = window.performance.now();
-      var time = ((end - start) / 1000 / 60).toFixed(2);
-      localStorage.setItem("time", time);
+      var time = ((end - start!) / 1000 / 60).toFixed(2);
+      localStorage.setItem('time', time);
       console.log(time);
-      history.push("/finish");
+      history.push('/finish');
     } else {
-      click("warning");
+      click('warning');
     }
   };
 
-  const click = (type) =>
+  const click = (type: any) =>
     setToast({
-      text: "Some answers are wrong or missing!",
+      text: 'Some answers are wrong or missing!',
       type,
     });
 
@@ -98,7 +59,7 @@ function App() {
         className="af-fullLogo"
         src={Logo}
         alt="Artfervour Logo"
-        onClick={() => linkHandleSameWindow("https://www.artfervour.com/")}
+        onClick={() => linkHandleSameWindow('https://www.artfervour.com/')}
       />
       <img
         className="af-game-Logo"
@@ -115,14 +76,7 @@ function App() {
       </p>
 
       <CrosswordWrapper className="CrosswordWrapper">
-        <Crossword
-          data={data}
-          ref={crossword}
-          onCorrect={onCorrect}
-          onLoadedCorrect={onLoadedCorrect}
-          onCellChange={onCellChange}
-          columnBreakpoint={"1920px"}
-        />
+        <Crossword data={data} ref={crossword} columnBreakpoint={'1920px'} />
       </CrosswordWrapper>
       <Grid.Container className="actualGrid">
         <Grid>
@@ -130,7 +84,7 @@ function App() {
             className="button"
             onClick={() => {
               reset();
-              gaLog("Button Click", "User Pressed on reset");
+              gaLog('Button Click', 'User Pressed on reset');
             }}
           >
             Reset
@@ -141,7 +95,7 @@ function App() {
             className="button"
             onClick={() => {
               checkCrossword();
-              gaLog("Button Click", "User clicked on Submit");
+              gaLog('Button Click', 'User clicked on Submit');
             }}
           >
             Submit
@@ -169,7 +123,7 @@ const CrosswordWrapper = styled.div`
 
   .clue.correct {
     ::before {
-      content: "\u2713"; /* a.k.a. checkmark: ✓ */
+      content: '\u2713'; /* a.k.a. checkmark: ✓ */
       display: inline-block;
       text-decoration: none;
       color: rgb(100, 200, 100);
@@ -183,13 +137,13 @@ const CrosswordWrapper = styled.div`
 
 Crossword.defaultProps = {
   theme: {
-    columnBreakpoint: "992px",
-    gridBackground: "transparent",
-    cellBackground: "#CCCCCC",
-    focusBackground: "#EC7154",
-    highlightBackground: "#F8E052",
-    cellBorder: "transparent",
-    numberColor: "#000",
-    textColor: "#555",
+    columnBreakpoint: '992px',
+    gridBackground: 'transparent',
+    cellBackground: '#CCCCCC',
+    focusBackground: '#EC7154',
+    highlightBackground: '#F8E052',
+    cellBorder: 'transparent',
+    numberColor: '#000',
+    textColor: '#555',
   },
 };

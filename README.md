@@ -11,15 +11,14 @@ Mobile:
 #### Install
 
 Install dependencies  
-`npm i`
+`yarn`
 
 Start app in local server  
-`npm start`
+`yarn start`
 
 #### LICENSE `MIT`
 
 (Excluding logo & Branding)
-
 
 <!-- Extra -->
 <!-- https://worksheets.theteacherscorner.net/make-your-own/crossword/ -->

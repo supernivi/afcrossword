@@ -1,22 +1,22 @@
-import "./App.scss";
+import './App.scss';
 
-import { Grid, Spacer, Text } from "@zeit-ui/react";
-import { Facebook, MessageCircle } from "@zeit-ui/react-icons";
-import React from "react";
-import { useHistory } from "react-router-dom";
-import styled from "styled-components";
+import { Grid, Spacer, Text } from '@zeit-ui/react';
+import { Facebook, MessageCircle } from '@zeit-ui/react-icons';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 
-import Logo from "../assets/img/logo.png";
+import Logo from '../assets/img/logo.png';
 import {
   gaLog,
   linkHandle,
   linkHandleSameWindow,
   pageView,
-} from "./../const/common";
+} from '../const/common';
 
 function Finish() {
   let history = useHistory();
-  const time = localStorage.getItem("time");
+  const time = localStorage.getItem('time');
 
   React.useEffect(() => {
     pageView(window.location.pathname + window.location.search);
@@ -29,13 +29,13 @@ function Finish() {
       <Spacer y={3} />
       <Text h3>
         <span style={{ opacity: 0.75, fontWeight: 400 }}>
-          Wow! You're a crossword{" "}
-        </span>{" "}
+          Wow! You're a crossword{' '}
+        </span>{' '}
         <span
           style={{
             opacity: 0.8,
-            fontSize: "110%",
-            fontFamily: "serif",
+            fontSize: '110%',
+            fontFamily: 'serif',
             letterSpacing: -0.6,
           }}
         >
@@ -53,8 +53,8 @@ function Finish() {
       <button
         className="finalButton"
         onClick={() => {
-          gaLog("Button Click", "user restarted the game.");
-          history.push("/");
+          gaLog('Button Click', 'user restarted the game.');
+          history.push('/');
         }}
       >
         Restart
@@ -63,7 +63,7 @@ function Finish() {
       <button
         className="finalButton"
         onClick={() => {
-          linkHandleSameWindow("https://flipme.artfervour.com/");
+          linkHandleSameWindow('https://flipme.artfervour.com/');
         }}
       >
         Play Flip Me
@@ -73,32 +73,32 @@ function Finish() {
       <button
         className="finalButton"
         onClick={() => {
-          linkHandleSameWindow("https://www.artfervour.com/af-games");
+          linkHandleSameWindow('https://www.artfervour.com/af-games');
         }}
       >
         Play More Games
       </button>
       <Spacer y={3} />
-      <Text p style={textCenter}>
+      <Text p style={{ textAlign: 'center' }}>
         Did you like the crossword? Share it with your friends, so they can give
         it a shot!
       </Text>
       <Spacer y={2} />
       <Grid.Container justify="center" className="final-social-links">
         <Facebook
-          onClick={() => {
+          // @ts-ignore
+          onClick={() =>
             linkHandle(
-              "https://www.facebook.com/sharer/sharer.php?u=https://crossword.artfervour.app/"
-            );
-          }}
+              'https://www.facebook.com/sharer/sharer.php?u=https://crossword.artfervour.app/'
+            )
+          }
         />
         <Spacer inline x={1.4} />
         <MessageCircle
-          onClick={() => {
-            linkHandle(
-              "whatsapp://send?text=https://crossword.artfervour.app/"
-            );
-          }}
+          // @ts-ignore
+          onClick={() =>
+            linkHandle('whatsapp://send?text=https://crossword.artfervour.app/')
+          }
         />
       </Grid.Container>
     </Page>
@@ -114,10 +114,6 @@ const Page = styled.div`
   padding-right: 20px;
 `;
 
-const textCenter = {
-  textAlign: "center",
-};
-
-const opacity = (val) => {
+const opacity = (val: number) => {
   return { opacity: val };
 };

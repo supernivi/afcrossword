@@ -119,8 +119,8 @@ body {
     flex-direction: row-reverse;
     .grid {
       flex: 0.8;
+      align-self: flex-start;
       justify-content: center;
-      align-self: center;
     }
     .clues {
       display: flex;
