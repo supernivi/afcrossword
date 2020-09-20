@@ -115,7 +115,7 @@ body {
   flex-direction: row-reverse;
   transition: filter 0.2s ease-in-out;
   .crossword {
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: row-reverse;
     .grid {
       flex: 0.8;
@@ -127,7 +127,7 @@ body {
       flex: 0 1 48%;
       flex-direction: row-reverse;
       .direction {
-        flex: 1;
+        flex: 1 1 auto;
         padding: 0 1rem;
         .header {
           font-size: 2rem;
@@ -170,6 +170,7 @@ body {
       flex-direction: column;
       .grid {
         align-self: center;
+        margin-bottom: 2rem;
         transform: scale(1.05);
         justify-content: center;
       }

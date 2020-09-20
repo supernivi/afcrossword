@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import GameLogo from '../assets/img/crossword.png';
 import Logo from '../assets/img/logo.png';
 import { gaLog, linkHandleSameWindow, pageView } from '../const/common';
-import data from '../const/data/data_30_8';
+import data from '../const/data/data_20_9';
 
 function App() {
   let history = useHistory();
@@ -74,6 +74,9 @@ function App() {
         &nbsp;Don't forget to come back every week as the game is updated weekly
         bringing forth a whole new challenge!
       </p>
+      {/* <p className="af-sub-text">
+        Topic: Famous artists that have had prominent day jobs
+      </p> */}
 
       <CrosswordWrapper className="CrosswordWrapper">
         <Crossword data={data} ref={crossword} columnBreakpoint={'1920px'} />
